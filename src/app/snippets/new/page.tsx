@@ -12,13 +12,12 @@ const SnippetCreatePage = () => {
     const code = formData.get("code") as string;
 
     // 3. Create a new record in the database
-    const snippet = await db.snippet.create({
+    await db.snippet.create({
       data: {
         title,
         code,
       },
     });
-    console.log(snippet);
 
     // 4. Redirect to the new snippet page
     redirect("/");
